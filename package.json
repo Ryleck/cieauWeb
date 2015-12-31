@@ -13,7 +13,6 @@
     "debug": "~2.0.0",
     "jade": "~1.6.0",
     "xml2js": "~0.4.4",
-    "cloudinary": "~1.1.2",
-	"sengrid":"~2.0.0"
+    "cloudinary": "~1.1.2"
   }
 }

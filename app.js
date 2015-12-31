@@ -20,10 +20,10 @@ var presentation = require('./node_modules/presentation/presentation');
 var cloudinary = require('cloudinary');
 var gUtilisateurs = require('./node_modules/gestionUtilisateur/gestionUtilisateur');
 var parser = new xml2js.Parser();
-var sendgrid  = require('sendgrid')(
+/*var sendgrid  = require('sendgrid')(
     'ryleck',
     'a1069023'
-);
+);*/
 var routes = require('./routes/index');
 var fileUpload = require('./routes/fileUpload');
 var users = require('./routes/users');
@@ -2060,7 +2060,7 @@ app.post('/selectionRetour',function(req, res){
 });
 
 function envoieEmail(email,utilisateur,motDePasse){
-    sendgrid.send({
+    /*sendgrid.send({
         to: email,
         from: 'info@cieau.qc.ca',
         subject: 'Informations compte',
@@ -2069,7 +2069,7 @@ function envoieEmail(email,utilisateur,motDePasse){
     }, function(err, json) {
         if (err) { return console.error(err); }
         console.log(json);
-    });
+    });*/
 }
 
 app.post('/recuperationMDP',function(req, res){
