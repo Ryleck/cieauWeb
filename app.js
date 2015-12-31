@@ -8,7 +8,6 @@
 // Déclaration des variables
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -16,7 +15,6 @@ var fs = require('fs');
 var toXML=require('./node_modules/toXML/toXML');
 var ls = require('./node_modules/listeFichiers/listeFichiers');
 var getExplication = require('./node_modules/explication/explication');
-var multer = require('multer');
 var xml2js = require('xml2js');
 var presentation = require('./node_modules/presentation/presentation');
 var cloudinary = require('cloudinary');
