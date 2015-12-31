@@ -1,0 +1,41 @@
+//
+   Created by Phil on 2015-01-02.
+
+extends layoutPresentation
+block content
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src='javascripts/scriptAfficheAvis.js')
+   script(src='javascripts/ajustePage.js')
+   div
+      <label id='labelResolution' style='position: fixed; top : 0; left : 0;'></label>
+   img#iLogoFantastico(src='images/Logo-Renverse-Fantastiko.png',alt="Logo Fantastico",style="width:230px;")
+   img#iLogoPresentation(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:140px;")
+   figure#fOndine
+      img#iOndine(src="images/331_001_Ondine_02.png",alt="Ondine")
+      figcaption Ondine
+   figure#fWalter
+      img#iWalter(src="images/331_001_Walter_02_flipped.png",alt="Walter")
+      figcaption Walter
+   div#divGouttes
+   div#divPresentation
+      h1#h1Presentation «Il y a loin de la rivière aux lèvres!»
+      div#dPresentation
+         p(style='margin-left: 10px; margin-right: 10px;').
+            Visite illustrée organisée par le Centre d’interprétation de l’eau (C.I.EAU)
+            pour le compte du ministère des Affaires municipales et de l’Occupation du
+            territoire
+      h2#h2Presentation Voici d’où provient l'eau de votre robinet...
+      br
+      h3 Animation :&nbsp;
+         i#italNomAnim!= nomAnim
+      br
+      br
+      div#dPresentation
+         form(action='/presentationCarte', method='post')
+            input(type='hidden', name='index', value=valeurIndex)
+            input#buttonPresentationIntro(type='submit', value='ALLONS-Y!', style='float:none;')
+      a#labelAideIntro(title='Aide',href="aide/presentationIntro.pdf", target="_blank") ?
+   figure#fProf3
+      img#iProf3(src="images/331_001_Professeur_03.png",alt="Professeur")
+      figcaption Professeur Hydraulix
+   input#bGlossaire(type='button', value='Avis', onclick='afficheAvis()' style='position: fixed; top: 500px; left: 90px; font-size: 200%')

@@ -1,0 +1,124 @@
+//
+   Created by Phil on 2015-01-06.
+
+extends layoutPresentation
+block content
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src='javascripts/glossaireDosage.js')
+   script(src='javascripts/controleSuivant.js')
+   form(action='/ficheDosage', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      div#divNav
+         a#labelAide(title='Aide',href="aide/dosage.pdf", target="_blank") ?
+         img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+         button#buttonPresentationDisabled(class='btnSuivant', disabled) Suivant
+         button#buttonPresentation(type='button', onclick="javascript:history.back()") Précédent
+      div
+         h2 Dosage
+         h3 Dans chaque rectangle, sélectionnez la situation qui s'appliquent pour le traitement
+         //div#divProc(class="scrollBarCIEAU")
+         table(align="center",style="width: 65%;")
+            tr
+               td#title État du produit :
+               td
+                  table#tProdDos1
+                     tr
+                        td(width='90%')
+                           label#mar50px(for='solide', title='Fiche du dosage solide') Solide
+                        td
+                           input#solide(type='checkbox', class='chekboxDosage',name='dosage', value='solide', onclick='clickDosage(this)')
+                           //button#solide(class='chekboxDosage', title='Fiche du dosage solide')
+                     tr
+                        td
+                           label#mar50px(for='liquide', title='Fiche du dosage liquide') Liquide
+                        td
+                           input#liquide(type='checkbox', class='chekboxDosage',name='dosage', value='liquide', onclick='clickDosage(this)')
+                           //button#liquide(class='chekboxDosage', title='Fiche du dosage liquide')
+                     tr
+                        td
+                           label#mar50px(for='gazeux', title='Fiche du dosage gazeux') Gazeux
+                        td
+                           input#gazeux(type='checkbox', class='chekboxDosage',name='dosage', value='gazeux', onclick='clickDosage(this)')
+                           //button#gazeux(class='chekboxDosage', title='Fiche du dosage gazeux')
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td#title Acheminement du produit :
+               td
+                  table#tProdDos2
+                     tr
+                        td(width='90%')
+                           label#mar50px(for='piston', title='Fiche de la pompe à piston') Pompe à piston
+                        td
+                           input#piston(type='checkbox', class='chekboxDosage', name='dosage', value='piston', onclick='clickDosage(this)')
+                          // button#piston(class='bDosage2', title='Fiche de la pompe à piston')
+                     tr
+                        td
+                           label#mar50px(for='peristaltique', title='Fiche de la pompe péristaltique') Pompe péristaltique
+                        td
+                           input#peristaltique(type='checkbox', class='chekboxDosage', name='dosage', value='peristaltique', onclick='clickDosage(this)')
+                           //#peristaltique(class='bDosage2', title='Fiche de la pompe péristaltique')
+                     tr
+                        td
+                           label#mar50px(for='diaphragme', title='Fiche de la pompe doseuse à diaphragme') Pompe doseuse à diaphragme
+                        td
+                           input#diaphragme(type='checkbox', class='chekboxDosage', name='dosage', value='diaphragme', onclick='clickDosage(this)')
+                           //button#hydro(class='bDosage2', title='Fiche de la pompe doseuse à diaphragme')
+                     tr
+                        td
+                           label#mar50px(for='hydro', title='Fiche hydroéjecteur') Hydroéjecteur
+                        td
+                           input#hydro(type='checkbox', class='chekboxDosage', name='dosage', value='gazeuxHydroejecteur', onclick='clickDosage(this)')
+                           //button#hydro(class='bDosage2', title='Fiche hydroéjecteur')
+                     tr
+                        td(colspan='2')
+                           label#mar50px Autre moyen (explication verbale)
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td#title Diffusion dans l'eau :
+               td
+                  table#tProdDos3
+                     tr
+                        td(width='90%')
+                           label#mar50px(for='poreux', title='Fiche du diffuseur poreux') Diffuseur poreux
+                        td
+                           input#poreux(type='checkbox', class='chekboxDosage', name='dosage', value='gazeuxDiffuseur', onclick='clickDosage(this)')
+                           //button#poreux(class='bDosage3', title='Fiche du diffuseur poreux')
+                     tr
+                        td
+                           label#mar50px(for='reacteur', title='Fiche réacteur') Réacteur
+                        td
+                           input#reacteur(type='checkbox', class='chekboxDosage', name='dosage', value='gazeuxReacteur', onclick='clickDosage(this)')
+                           //button#reacteur(class='bDosage3', title='Fiche réacteur')
+                     tr
+                        td
+                           label#mar50px(for='perfore', title='Fiche du tuyau perforé') Tuyau perforé
+                        td
+                           input#perfore(type='checkbox', class='chekboxDosage', name='dosage', value='diffLiquide', onclick='clickDosage(this)')
+                           //button#perfore(class='bDosage3', title='Fiche du tuyau perforé')
+                     tr
+                        td(colspan='2')
+                           label#mar50px Autre moyen (explication verbale)
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td(colspan='2')
+                  h2 TRAITEMENTS CHIMIQUES OU PHYSICO-CHIMIQUES
+            tr
+               td(colspan='2', style="text-align: justify;").
+                  Plusieurs produits chimiques sont utilisés en traitement de l’eau potable. Ces produits sont
+                  utilisés sous diverses formes : solide, liquide ou gazeuse. Selon la forme employée, différents
+                  types de <label id="labelLienGlossaire" data-tooltip="Appareil ou dispositif servant à ajouter un produit chimique dans à
+                  traiter l’eau dans des proportions définies.">doseurs</label> sont utilisés pour les diluer et les introduire dans les bonnes proportions dans
+                  l’eau à traiter.
+                  Des systèmes de contrôle et des appareils de mesure contrôlent les quantités de produits
+                  chimiques ajoutés au cours du traitement.
+                  Contrairement à ce que l’on pense, le fait d’utiliser des produits chimiques pour produire de
+                  l’eau potable n’augmente pas nécessairement la quantité de ces produits dans l’eau traitée.
+            tr
+               td(colspan='2', style="text-align: right;")
+                  button#bGlossaire(type="button", onclick="clickPlus()") Plus

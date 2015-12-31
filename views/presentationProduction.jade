@@ -1,0 +1,35 @@
+//
+   Created by Phil on 2015-01-15.
+
+extends layoutPresentation
+block content
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src="javascripts/imageOri.js")
+   div#divNavPresentation
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png', alt="Logo C.I.EAU", style="width:82px;height:50px")
+      form(action='/presentationCaracteristiques', method='post')
+         a#labelAide(title='Aide',href="aide/presentationProduction.pdf", target="_blank") ?
+         input(type='hidden', name='index', value=valeurIndex)
+         input#buttonPresentation(type='submit', value='Suivant')
+         button#buttonPresentation(type="button", onclick='javascript:history.back()') Précédent
+   div#divProdImg
+      //img#iLogoPresentation(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:164px;height:100px")
+      div#divProduction
+         h3 Voici la station de production d’eau potable
+         h3#h2Prod=ville
+
+         h3 fournissant l’eau à
+         h3#h2Prod=villesFournies
+
+         h3 Elle peut produire
+         h3#h2Prod=capacite
+         h3
+            |&nbsp;m
+            sup#supM 3
+            |&nbsp;d'eau potable / jour
+
+         h3 à une population de
+         h3#h2Prod=population
+         h3 personnes
+      div#divImage
+         img(src=imageStation,style='width:630px;cursor: pointer;',onclick='imageOriginal(event)')

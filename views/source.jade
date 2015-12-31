@@ -1,0 +1,43 @@
+//
+   Created by Phil on 2014-11-22.
+extends layout
+block content
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src="javascripts/ajaxSaveRetour.js")
+   script(src="javascripts/bandesGouttesAjustement.js")
+   div#divGouttesG
+   div#divGouttesD
+   form#formInfo(action='/procedes', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      div#divNav
+         a#labelAide(title='Aide',href="aide/source.pdf", target="_blank") ?
+         img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+         button#button(type='button', class="bPrecedentSource") Précédent
+         input#button(type='submit', value='Suivant')
+      div#divAlim
+         h1 Provenance et particularités de l'eau brute
+         table#tCarEau(align="center")
+            tr
+               td#title Provenance de l'eau brute :
+               td(align='left')!=selectionProvenance
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td#title Nom du plan d'eau :
+               td(align='left')
+                  input#iPlanEau(type='text', name='nomPlanEau', value=nomPlanEau)
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td(colspan='2')
+                  br
+            tr
+               td#title(style="padding-top: 14px;") Particularités de l'eau brute :
+               td#tdCarEau
+                  table#tCarEau2!=tableParticularite
+         //img#index(src="images/331_001_Professeur_02.png",alt="Professeur",style="width:311px;height:500px")
+
+         //p#pAlim Alimentation
+         //div#divAlim

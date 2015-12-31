@@ -1,0 +1,24 @@
+//
+   Created by Phil on 2015-02-18.
+
+extends layoutPresentation
+block content
+   img#iLogoFantastico(src='images/Logo-Renverse-Fantastiko.png',alt="Logo Fantastico",style="width:283px;height:100px")
+   img#iLogoPresentation(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:164px;height:100px")
+   figure#fOndine
+      img(src="images/331_001_Ondine_02.png",alt="Ondine",style="height:300px")
+      figcaption Ondine
+   figure#fWalter
+      img(src="images/331_001_Walter_02_flipped.png",alt="Walter",style="height:300px")
+      figcaption Walter
+   img(src="images/bulle.png",alt="Ondine",style="position: absolute;z-index: -1;top:72px;right:170px;height:220px;")
+   figure#fProf4
+      img(src="images/331_001_Professeur_03.png",alt="Professeur",style="height:450px")
+      figcaption Professeur Hydraulix
+   div(type='submit', value='Remerciements', style='position:fixed;left:35%;top:60%;text-align: center;')
+      h2 Questions?
+      form(action='/remerciements', method='post')
+         input(type='hidden', name='index', value=valeurIndex)
+         a#labelAideIntro(title='Aide',href="aide/conclusion.pdf", target="_blank") ?
+         input#buttonPresentationIntro(type='submit', value='Remerciements', style='width:200px;')
+         button#buttonPresentationIntro(type='button', onclick="javascript:history.back()") Précédent

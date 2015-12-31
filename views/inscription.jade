@@ -1,0 +1,37 @@
+//
+   Created by Phil on 2015-03-26.
+
+extends layout
+block content
+   script function goBack() {window.history.back()}
+   script(src="http://code.jquery.com/jquery-1.11.1.min.js")
+   script(src="javascripts/bandesGouttesAjustement.js")
+   div#divGouttesG
+   div#divGouttesD
+   div#divNav
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+      button#button(type="button",onclick="goBack()") Précédent
+      button#buttonDisabled Suivant
+      a#labelAide(title='Aide',href="aide/accueil.pdf", target="_blank") ?
+   div
+      h1 Inscription d'un nouvel utilisateur
+      div(style='text-align: right; width: 475px; margin:0 auto;')
+         form
+            label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Nom d'utilisateur désiré :
+            input#iText(type='text', name='user',placeholder='Nom d\'utilisateur')
+            br
+            br
+            label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Mot de passe désiré :
+            input#iText(type='password', name='password',placeholder='Mot de passe')
+            br
+            br
+            label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Confirmation du mot de passe :
+            input#iText(type='password', name='passwordCon',placeholder='Confirmation')
+            br
+            br
+            label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Adresse courriel :
+            input#iText(type='text', name='email',placeholder='Courriel')
+            br
+            br
+            div(style='text-align: center;')
+               input#button(type='submit', value='Sauvegarder')

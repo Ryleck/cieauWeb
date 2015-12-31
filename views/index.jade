@@ -1,0 +1,91 @@
+extends layout
+
+block content
+  script(src="http://code.jquery.com/jquery-1.11.1.min.js")
+  //script(src='javascripts/eauTombante.js')
+  script(src="javascripts/bandesGouttesAjustement.js")
+  script(src="javascripts/verificationInscription.js")
+  script(src="javascripts/clickIndex.js")
+  //canvas#canvasGoutte
+  div#divGouttesG
+  div#divGouttesD
+  div#divNav
+    img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+    a#labelAide(title='Aide',href="aide/accueil.pdf", target="_blank") ?
+  h1 Il y a loin de la rivière aux lèvres!
+  //img#index(src="images/331_001_Professeur_02.png",alt="Professeur",style="width:311px;height:500px")
+  table(align="center")
+    tr
+      td#tdInscr(style="height:283px;")
+        h2 Inscription d'un nouvel utilisateur
+        table
+          //form(action='/selectionAjout', method='post',style='text-align: right;')
+            input(type='hidden', name='index', value=valeurIndex)
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;")
+              label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Nom d'utilisateur désiré :
+            //input#iText(type='text', name='user',placeholder='Nom d\'utilisateur')
+            td
+              //div#dTextIns
+              input#iTextNom(class='iTextIns',type='text', name='userInsc',placeholder='Nom d\'utilisateur')
+              label#lNom(class='lTextIns')
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;")
+              label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Mot de passe désiré :
+            //input#iText(type='password', name='password',placeholder='Mot de passe')
+            td
+              //div#dTextIns
+              input#iTextPass(class='iTextIns',type='password', name='passwordInsc',placeholder='Mot de passe')
+              label#lPass(class='lTextIns')
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;")
+              label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Confirmation du mot de passe :
+              //input#iText(type='password', name='passwordCon',placeholder='Confirmation')
+            td
+              //div#dTextIns
+              input#iTextPassCon(class='iTextIns',type='password', name='passwordCon',placeholder='Confirmation')
+              label#lPassCon(class='lTextIns')
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;")
+              label(style="text-align: right; padding-right: 10px; vertical-align: middle;") Adresse courriel :
+              //input#iText(type='text', name='email',placeholder='Courriel')
+            td
+              //div#dTextIns
+              input#iTextEmail(class='iTextIns',type='text', name='emailInsc',placeholder='Courriel')
+              label#lEmail(class='lTextIns')
+          tr
+            td(colspan='2')
+              button#buttonDisabled(name='btnInscription', type='button', onclick='inscription()', disabled) Inscription
+      td#tdLogin(style="height:283px;")
+        h2 Utilisateur existant
+        form(action='/selection', method='post')
+          input(type='hidden', name='index', value=valeurIndex)
+          input#iText(type='text',name='user',placeholder='Nom d\'utilisateur')
+          br
+          br
+          input#iText(type='password',name='password',placeholder='Mot de passe')
+          br
+          br
+          input#buttonIndex(type='submit', value='Commencer')
+          br
+          br
+          label#lMDPRecuperation(onclick='recupererMDP()') Informations oubliées ?
+  //form(action='/inscription', method='post', style='display: inline-block;')
+    input#button(type='submit', value='Inscription', title='Formulaire d\'inscription d\'un nouvel utilisateur')
+  br
+  div#divIndex
+    |Ce logiciel fait partie de la trousse scolaire FANTASTIKO!
+    |Il est destiné à préparer et présenter une visite illustrée
+    |de différents types de stations d'eau potable.
+    |Cette trousse a été produite par le Centre
+    |d'interprétation de l'eau (C.I.EAU) pour le compte
+    |du ministère des Affaires municipales et de lʼOccupation
+    |du territoire (MAMOT)
+    br
+    a(href="aide/Infos completes.pdf", target="_blank", style="float:right;") Infos complètes
+    br
+  a#aIndex(href="aide/Guide.pdf", target="_blank") Guide d'utilisation
+  br
+  br
+  br
+  label#labelLien(onclick='afficheNotice()') NOTES IMPORTANTES À LIRE

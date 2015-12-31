@@ -1,0 +1,51 @@
+//
+   Created by Phil on 2014-12-08.
+
+extends layout
+
+block content
+   script function goBack() {window.history.back()}
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src="javascripts/bandesGouttesAjustement.js")
+   div#divGouttesG
+   div#divGouttesD
+   h1 Sélection d'une présentation
+   figure#index
+      img#imgProf(src="images/331_001_Professeur_02.png",alt="Professeur")
+      figcaption#figProf Le professeur Hydraulix,
+      figcaption#figProf l'expert en eau potable!
+   figure#fOndineChoix
+      img#imgOndine(src="images/331_001_Ondine_02.png",alt="Ondine",style="height:350px")
+      figcaption Ondine
+   figure#fWalterChoix
+      img#imgWalter(src="images/331_001_Walter_02.png",alt="Walter",style="height:350px")
+      figcaption Walter
+   div#divNav
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+      //input(type='hidden', name='user', value=user)
+      a#labelAide(title='Aide',href="aide/selection.pdf", target="_blank") ?
+      button#button(onclick="goBack()") Précédent
+      button#buttonDisabled Suivant
+
+   form(action='/info', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      input#button(type='submit', name="action", value='Nouvelle'  ,title="Création d'une nouvelle présentation")
+      //a#button(href='info' ,title="Création d'une nouvelle présentation") Nouvelle
+      br
+      br
+   form(action='/presentationsExistantes', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      input#button(type='submit', value='Existante'  ,title="Utilisation d'une présentation existante")
+      //br
+      //br
+      //a#buttonBottom(href='choixPresentation' title="Importation d'une présentation à partir d'un fichier") Importer
+   br
+   br
+   br
+   p Préparez une visite
+      br
+      |en compagnie des
+      br
+      |personnages de la
+      br
+      |trousse Fantastiko!

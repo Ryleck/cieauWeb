@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  script function goBack() {window.history.go(-1)}
+  script(src="http://code.jquery.com/jquery-1.11.1.min.js")
+  script(src="javascripts/ajaxSaveRetour.js")
+  script(src="javascripts/bandesGouttesAjustement.js")
+  div#divGouttesG
+  div#divGouttesD
+  form#formInfo(action='/source', method='post')
+    input(type='hidden', name='index', value=valeurIndex)
+    div#divNav
+      a#labelAide(title='Aide',href="aide/info.pdf", target="_blank") ?
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+      button#button(type='button', class="bPrecedentInfo") Précédent
+      input#button(type='submit', value='Suivant')
+    div#divAlim
+      h1 Informations générales
+      //img#index(src="images/331_001_Professeur_02.png",alt="Professeur",style="width:311px;height:500px")
+      p#pInfo
+        table(align='center')
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Nom de l'animateur :
+            td
+              input#iText(type='text',name='anim',placeholder='Inscrire le nom',size=40, value=nomAnim)
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Nom de la station de production d'eau potable :
+            td
+              input#iText(type='text',name='station',placeholder='Compléter',size=40, value=nomStation)
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Adresse de la station :
+            td
+              input#iText(type='text',name='numAdresse',placeholder='Numéro civique, rue',size=40, value=numeroRueAdd)
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Ville ou municipalité où se situe la station :
+            td
+              input#iText(type='text',name='villeAdresse',placeholder='Inscrire le nom',size=40, value=villeAdd)
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Capacité maximale de la station :
+            td
+              div#dTextCap
+                input#iTextCap(type='text',name='cap',placeholder='Capacité maximale',size=31, value=capacite)
+                label#lTextCap m³/jour
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Villes ou secteurs desservis par la station :
+            td
+              input#iText(type='text',name='villes',placeholder='Villes ou secteurs desservis',size=40, value=villes)
+          tr
+            td(colspan='2')
+              br
+          tr
+            td(style="text-align: right; padding-right: 10px; vertical-align: middle;") Population totale desservie :
+            td
+              input#iText(type='text',name='pop',placeholder='Nombre de personnes',size=40, value=population)
+

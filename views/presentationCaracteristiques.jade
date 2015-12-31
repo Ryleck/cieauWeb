@@ -1,0 +1,27 @@
+extends layoutPresentation
+block content
+    script(src="//code.jquery.com/jquery-1.11.1.min.js")
+    script(src="javascripts/imageOri.js")
+    div#divNavPresentation
+        img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png', alt="Logo C.I.EAU", style="width:82px;height:50px")
+        form(action='/presentationProcedes', method='post')
+            a#labelAide(title='Aide',href="aide/presentationCaracteristiques.pdf", target="_blank") ?
+            input(type='hidden', name='index', value=valeurIndex)
+            input#buttonPresentation(type='submit', value='Suivant')
+            button#buttonPresentation(type="button", onclick='javascript:history.back()') Précédent
+    div
+        //img#iLogoPresentation(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:164px;height:100px")
+        div
+            h3 Provenance de l’eau à traiter :&nbsp;
+                h3#h2Prod=source
+            h3 Caractéristiques de l'eau brute
+            div#divCarac
+                #h2Prod!=caracteristiques
+                p(style="text-align: justify;").
+                    Les différents procédés utilisés dans cette station
+                    de production d'eau potable visent à corriger les problèmes
+                    associés à ces caractéristiques de l'eau brute.
+            //button#buttonPresentationImage(onclick='javascript:history.back()') Précédent
+            //form(action='/presentationProcedes', method='post')
+                input#buttonPresentationImage(type='submit', value='Suivant')
+            h3 Allons voir la filière de traitement

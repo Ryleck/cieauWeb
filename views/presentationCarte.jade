@@ -1,0 +1,39 @@
+//
+   Created by Phil on 2015-01-13.
+
+extends layoutPresentation
+block content
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src="javascripts/ajaxMajCarte.js")
+   div#divNavPresentation
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png', alt="Logo C.I.EAU", style="width:82px;height:50px")
+      form(action='/presentationProduction', method='post')
+         a#labelAide(title='Aide',href="aide/presentationCarte.pdf", target="_blank") ?
+         input(type='hidden', name='index', value=valeurIndex)
+         input#buttonPresentation(type='submit', value='Suivant')
+         button#buttonPresentation(type="button", onclick='javascript:history.back()') Précédent
+   div
+      //img#iLogoPresentation(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:164px;height:100px")
+      h2.
+         Voici l’emplacement de la station, de la source d’eau brute et de
+         l’endroit où nous sommes présentement.
+   div#divImageMaps
+      div#divImageCycle
+         img(src=image, alt="Cycle de l'eau",style="height:380px")
+         p Provenance de l'eau brute
+         h3#h2Prod=source
+      div#divMaps
+         iframe(width="540", height="350", frameborder="0", style="border:0", src=adresse)
+         table(width='100%')
+            tr
+               td(width='50%')
+                  input#iTextCarte(type='text',class='adrLieuPresentation',placeholder='Lieu de la présentation',size=30)
+                  br
+                  input#iTextCarte(type='text',class='adrLieuPresentation',placeholder='Ville du lieu de la présentation',size=30)
+                  br
+                  input#buttonMajCarte(type='button', value='Mise à jour de la carte')
+               td
+                  h3#h2Prod=nomStation
+                  =rue
+                  br
+                  =ville

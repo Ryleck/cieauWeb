@@ -1,0 +1,51 @@
+//
+   Created by Phil on 2014-12-09.
+
+extends layout
+block content
+   script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
+   script(src='javascripts/jquery.ui.widget.js' type='text/javascript')
+   script(src='javascripts/jquery.iframe-transport.js' type='text/javascript')
+   script(src='javascripts/jquery.fileupload.js' type='text/javascript')
+   script(src='javascripts/jquery.cloudinary.js' type='text/javascript')
+   script(id="scriptRevision",src="javascripts/ajustementIcones.js")
+   script(id="scriptRevision2",src="javascripts/ClickEventClient.js")
+   script(id="scriptRevision3",src="javascripts/ajaxSave.js")
+   div#divNav
+      a#labelAide(title='Aide',href="aide/revision.pdf", target="_blank") ?
+      img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png',alt="Logo C.I.EAU",style="width:82px;height:50px")
+      button#button(type='button', class="bPrecedent") Précédent
+      button#buttonDisabled Suivant
+   div
+      h1 Révision et ajustement de la présentation
+      button#buttonLeft(type='button', onclick='deplaceGauche(event)', disabled) < Gauche
+      button#buttonRight(type='button', onclick='deplaceDroite(event)', disabled) Droite >
+   div#dRevision!= blockRevision
+   br
+   form#formPhoto
+      label Téléversement d'une photo extérieure de votre station
+      br
+      br
+      !=inputPhoto
+      input#image_id(type='hidden', name='image_id')
+      input#image_public_id(type='hidden', class='image_public_id')
+      br
+      br
+      div(class="preview")!=preview
+   br
+   h2 Une fois votre révision terminée :
+   br
+   button#iButtonSave(type='submit', title='Votre présentation sera enregistrée sur le serveur sous le nom : '+nomFichier) Sauvegarder la présentation
+   br
+   br
+   form#fBouttonRev(action='/selectionRetour', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      input(type='hidden', name='user', value=nomUtilisateur)
+      button#bouttonRevSel(type='submit', disabled) Page de sélection
+   form#fBouttonRev(action='/presentationIntro', method='post')
+      input(type='hidden', name='index', value=valeurIndex)
+      input(type='hidden', name='utilisateur', value=nomUtilisateur)
+      input(type="hidden", name="fichier", value=nomFichier)
+      button#bouttonRevPre(type='submit', disabled) Commencer la présentation
+
+

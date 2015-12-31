@@ -1,0 +1,34 @@
+//
+   Created by Phil on 2015-01-02.
+
+extends layoutPresentation
+block content
+   script function goBack() {window.history.back()}
+   script(src="//code.jquery.com/jquery-1.11.1.min.js")
+   script(src='javascripts/afficheFichePresentation.js')
+   script(src='javascripts/explicationAJAX.js')
+   div#divNavPresentation
+      form(action='/conclusion', method='post')
+         a#labelAide(title='Aide',href="aide/presentation.pdf", target="_blank") ?
+         input(type='hidden', name='index', value=valeurIndex)
+         img#iLogo(src='images/LOGO_FB_CIEAU_CMJN.png', alt="Logo C.I.EAU", style="width:82px;height:50px")
+         div#divZoom
+            label#labelZoom Ajustement de la taille de l'illustration
+            button#buttonZoom(type="button", onclick="zoomMinus()") -
+            button#buttonZoom(type="button", onclick="zoomPlus()") +
+
+         //input(type='hidden', name='user', value=user)
+
+         button#buttonPresentation(class='btnSuivant') Conclusion
+         button#buttonPresentation(type="button",onclick="goBack()") Précédent
+   div#divNavProc(class="scrollBarCIEAU")!= blockNavigation
+   label Cliquer sur une icône pour obtenir l'illustration correspondante.
+   div#divFiche
+      div#dBoutonMenu
+         input#iButtonExplication(type='image', src='images/Bouton-explications.png', class="iBoutonMenuDis", alt="Explication", title='Explication du procédé', disabled)
+         input#iButtonImgProc(type='image', src='images/Bouton-images.png', class="iBoutonMenuDis", alt="Img proc", title="Affichage des images pour le procédé", onclick='imageClick()', disabled)
+         input#iButtonVideo(type='image', src='images/Bouton-liens.png', class="iBoutonMenuDis", alt="Externe", title='Lien Externe pour le procédé', disabled)
+         form(action='/dosage', method='post')
+            input(type='hidden', name='index', value=valeurIndex)
+            input#iButtonDosage(type='image', src='images/Bouton-dosage.png', class="iBoutonMenuDis", alt="Dosage", title="Vers la page de navigation pour le dosage", disabled)
+      div#divProcede!= blockProcede
