@@ -789,6 +789,13 @@ div#dRevision{
   padding: 4px;
 }
 
+.dListeFichierSep{
+  background-color: #FFF0CC;
+  text-align: left;
+  color: #006699;
+  padding: 4px;
+}
+
 #divIntroCopyright{
   text-align: justify;
   color: #006699;
